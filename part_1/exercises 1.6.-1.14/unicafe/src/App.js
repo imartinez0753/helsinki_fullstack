@@ -1,4 +1,23 @@
 import React, { useState } from 'react'
+const History = ({all, good, neutral, bad, average, percentage}) => {
+  if (all === 0) {
+    return (
+      <div>
+        No data currently entered.
+      </div>
+    )
+  }
+  return (
+    <div>
+      <Statistics value= {'Good: ' + good + ' '} />
+      <Statistics value= {'Neutral: ' + neutral + ' '} />
+      <Statistics value= {'Bad: ' + bad + ' '} />
+      <Statistics value= {'All: ' + all + ' '} />
+      <Statistics value= {'Average: ' + average + ' '} />
+      <Statistics value= {'Percentage: ' + percentage + '% '} /> 
+    </div>
+  )
+}
 const Statistics = (props) => (
 <div>
   {props.value}
@@ -44,12 +63,9 @@ const App = () => {
       <Button handleClick={handleNeutralCLick} text='neutral' />
       <Button handleClick={handleBadCLick} text='bad' />
       <h3>statistics</h3>
-      <Statistics value= {'Good: ' + good + ' '} />
-      <Statistics value= {'Neutral: ' + neutral + ' '} />
-      <Statistics value= {'Bad: ' + bad + ' '} />
-      <Statistics value= {'All: ' + all + ' '} />
-      <Statistics value= {'Average: ' + average + ' '} />
-      <Statistics value= {'Percentage: ' + percentage + '% '} />
+      <History all={all} good={good} bad={bad} average={average} percentage={percentage} neutral={neutral}/>
+      
+      
     </div>
   )
 }
