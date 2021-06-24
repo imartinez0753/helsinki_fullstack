@@ -1,5 +1,15 @@
 import React, { useState } from 'react'
+const Statistics = (props) => (
+<div>
+  {props.value}
+</div>
+)
 
+const Button = ({ handleClick, text }) => (
+  <button onClick={handleClick}>
+    {text}
+  </button>
+)
 const App = () => {
   // save clicks of each button to its own state
   const [good, setGood] = useState(0)
@@ -7,12 +17,7 @@ const App = () => {
   const [bad, setBad] = useState(0)
   const [all, setAll] = useState(0)
   const [average, setAverage] = useState(0)
-  const [percentage, setPercentage] = useState(0)
-    const Button = ({ handleClick, text }) => (
-    <button onClick={handleClick}>
-      {text}
-    </button>
-  )
+  const [percentage, setPercentage] = useState(0)        
   const handleGoodClick = () => {
         setPercentage((good/all)*100)
         setAverage(all/3)
@@ -39,12 +44,12 @@ const App = () => {
       <Button handleClick={handleNeutralCLick} text='neutral' />
       <Button handleClick={handleBadCLick} text='bad' />
       <h3>statistics</h3>
-      {'Good:' + good + ' '}
-      {'Neutral:' + neutral + ' '}
-      {'Bad:' + bad + ' '}
-      {'All:' + all + ' '}
-      {'Average:' + average + ' '}
-      {'Percentage:' + percentage + '% '}
+      <Statistics value= {'Good: ' + good + ' '} />
+      <Statistics value= {'Neutral: ' + neutral + ' '} />
+      <Statistics value= {'Bad: ' + bad + ' '} />
+      <Statistics value= {'All: ' + all + ' '} />
+      <Statistics value= {'Average: ' + average + ' '} />
+      <Statistics value= {'Percentage: ' + percentage + '% '} />
     </div>
   )
 }
