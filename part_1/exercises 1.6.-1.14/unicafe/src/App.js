@@ -149,7 +149,7 @@ const App = () => {
     setSelected(Math.floor(Math.random()*7))
   }
   const handleVote = () => {
-    // setVote({...vote, vote[selected]: + 1})
+    setVote(...vote, vote[selected] += 1)
   console.log(vote)
   console.log(selected)
   }
